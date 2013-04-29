@@ -45,9 +45,15 @@ func NewUserPass(username, password string) *UserPass {
 }
 
 func main() {
-	username := wizard.Ask("Username: ")
-	password := wizard.AskPassword("Password: ")
+	var username, password string
+	filename := "userpass.txt"
+	if Exists(filename) {
+		username, password = ReadTwoLines(filename)
+	} else {
+		username = wizard.Ask("Username: ")
+		password = wizard.AskPassword("Password: ")
+	}
 	up := NewUserPass(username, password)
-	ticketid := wizard.Ask("Ticked ID (for instance 1204510): ")
+	ticketid := wizard.Ask("Ticked ID (for instance 905968): ")
 	fmt.Println(up.GetTicket(ticketid))
 }
