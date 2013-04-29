@@ -46,6 +46,8 @@ func NewUserPass(username, password string) *UserPass {
 
 func main() {
 	var username, password string
+
+	// TODO: Rename to something like ~/.config/rtcli 
 	filename := "userpass.txt"
 	if Exists(filename) {
 		username, password = ReadTwoLines(filename)
@@ -53,7 +55,8 @@ func main() {
 		username = wizard.Ask("Username: ")
 		password = wizard.AskPassword("Password: ")
 	}
-	up := NewUserPass(username, password)
+
 	ticketid := wizard.Ask("Ticked ID (for instance 905968): ")
+	up := NewUserPass(username, password)
 	fmt.Println(up.GetTicket(ticketid))
 }
