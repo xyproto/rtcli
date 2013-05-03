@@ -47,7 +47,7 @@ func NewUserPass(username, password string) *UserPass {
 func main() {
 	var username, password string
 
-	// TODO: Rename to something like ~/.config/rtcli 
+	// TODO: Rename to something like ~/.config/rtcli
 	filename := "userpass.txt"
 	if Exists(filename) {
 		username, password = ReadTwoLines(filename)
