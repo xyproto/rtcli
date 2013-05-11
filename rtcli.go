@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"github.com/xyproto/ais/wizard"
+	"github.com/xyproto/wizard"
 	"io/ioutil"
 	"net/http"
 )
